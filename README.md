@@ -1,4 +1,4 @@
-xSwatch4
+xSwatch5
 =======
 
 xSwatch5 is a theme for [XOOPS 2.5.11](https://xoops.org) that is based on [Bootstrap](https://getbootstrap.com) 5.0.0.
