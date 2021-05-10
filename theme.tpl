@@ -116,6 +116,6 @@
     <{if $xoops_isadmin|default:false}><{include file="$theme_name/tpl/nav-admin.tpl"}><{/if}>
     <!-- Inbox alert -->
     <{if $xoops_isuser|default:false}><{include file="$theme_name/tpl/inboxAlert.tpl"}><{/if}>
-        <script src="<{xoImgUrl}>js/bootstrap.bundle.min.js"></script>
+    <script src="<{xoImgUrl}>js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
