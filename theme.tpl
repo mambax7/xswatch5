@@ -108,7 +108,7 @@
             </a>
         </h3>
     </footer>
-    <div class="aligncenter comments-nav d-block d-sm-none">
+    <div class="text-center m-1 p-1 d-block d-sm-none">
         <a href="http://xoops.org" title="Design by: XOOPS UI/UX Team" target="_blank">
             <img src="<{xoImgUrl}>images/favicon.png" alt="Design by: XOOPS UI/UX Team">
         </a>
