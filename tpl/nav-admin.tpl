@@ -7,11 +7,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="admin-navbar-collapse">
-                <div class="navbar-nav mr-auto">
+                <div class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="<{xoAppUrl /}>"><span class="fa fa-home"></span> <{$smarty.const.THEME_TOOLBAR_HOME}></a></li>
                     <li class="nav-item"><a class="nav-link" href="javascript:xswatchEnableBlockEdits();"><span class="fa fa-edit"></span> <{$smarty.const.THEME_TOOLBAR_SHOW_BLOCK_EDIT}></a></li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-toolbar-settings-menu"><{$smarty.const.THEME_TOOLBAR_SETTINGS}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-toolbar-settings-menu"><{$smarty.const.THEME_TOOLBAR_SETTINGS}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-toolbar-settings-menu">
                             <a class="dropdown-item" href="<{xoAppUrl admin.php}>"><span class="fa fa-dashboard"></span> <{$smarty.const.THEME_TOOLBAR_CONTROL_PANEL}></a>
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=preference}>"><span class="fa fa-tasks"></span> <{$smarty.const.THEME_TOOLBAR_SYSTEM_CONFIG}></a>
@@ -21,7 +21,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-toolbar-tools-menu"><{$smarty.const.THEME_TOOLBAR_TOOLS}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-toolbar-tools-menu"><{$smarty.const.THEME_TOOLBAR_TOOLS}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-toolbar-tools-menu">
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php}>"><span class="fa fa-tasks"></span> <{$smarty.const.THEME_TOOLBAR_SYSTEM_OPTIONS}></a>
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=modulesadmin}>"><span class="fa fa-list-alt"></span> <{$smarty.const.THEME_TOOLBAR_MODULES}></a>
@@ -35,7 +35,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-toolbar-users-menu"><{$smarty.const.THEME_TOOLBAR_USER_TOOLS}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-toolbar-users-menu"><{$smarty.const.THEME_TOOLBAR_USER_TOOLS}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-toolbar-users-menu">
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=users}>"><span class="fa fa-user-o"></span> <{$smarty.const.THEME_TOOLBAR_USERS}></a>
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=groups}>"><span class="fa fa-users"></span> <{$smarty.const.THEME_TOOLBAR_GROUPS}></a>
@@ -46,7 +46,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-toolbar-image-menu"><{$smarty.const.THEME_TOOLBAR_IMAGE_TOOLS}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-toolbar-image-menu"><{$smarty.const.THEME_TOOLBAR_IMAGE_TOOLS}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-toolbar-image-menu">
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=images}>"><span class="fa fa-picture-o"></span> <{$smarty.const.THEME_TOOLBAR_IMAGES}></a>
                             <a class="dropdown-item" href="<{xoAppUrl modules/system/admin.php?fct=avatars}>"><span class="fa fa-user"></span> <{$smarty.const.THEME_TOOLBAR_AVATARS}></a>
