@@ -4,7 +4,7 @@
             <!-- <{$block.lang_username}> -->
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><span class="fa fa-user fa-lg text-info my-1"></span></div>
+                    <div class="input-group-text"><span class="fa fa-user fa-lg fa-fw text-info my-1"></span></div>
                 </div>
                 <input class="form-control form-control-sm" type="text" name="uname" placeholder="<{$smarty.const.THEME_LOGIN}>">
             </div>
@@ -14,7 +14,7 @@
             <!-- <{$block.lang_password}> -->
              <div class="input-group">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><span class="fa fa-lock fa-lg text-info my-1"></span></div>
+                    <div class="input-group-text"><span class="fa fa-lock fa-lg fa-fw text-info my-1"></span></div>
                 </div>
                 <input class="form-control form-control-sm" type="password" name="pass" placeholder="<{$smarty.const.THEME_PASS}>">
             </div>
