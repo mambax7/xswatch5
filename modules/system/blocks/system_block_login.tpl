@@ -47,8 +47,4 @@
         </div>
 
     </form>
-<!--    
-    <a class="btn btn-secondary btn-xs btn-block" href="<{xoAppUrl user.php#lost}>" title="<{$block.lang_lostpass}>"><{$block.lang_lostpass}></a>
-    <a class="btn btn-info btn-xs btn-block" href="<{xoAppUrl register.php}>" title="<{$block.lang_registernow}>"><{$block.lang_registernow}></a>
--->
 </div>
