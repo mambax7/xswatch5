@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <form action="<{xoAppUrl user.php}>" method="post" role="form">
         <div class="form-group mt-2">
             <!-- <{$block.lang_username}> -->
