@@ -6,7 +6,7 @@ Authors : alain01,
 - Added 4 new variants: morph, quartz, vapo, zephyr
 - Updated bootstrap 4.6.1 librairies to bootstrap 5.2.3 librairies
 - Updated several files at the root directoty
-- Upadating theme.tpl
+- Updating theme.tpl
 - Updated Jumbotron (/tpl/jumbotron.tpl)
 - Updated Slider (/tpl/slider.tpl)
 added new style to vertical slide for BT5 compatibility in new-style-bt5.css
