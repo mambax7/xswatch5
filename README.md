@@ -12,14 +12,14 @@ Authors : alain01,
 added new style to vertical slide for BT5 compatibility in new-style-bt5.css
 By default, horizontal slide
 
-- TO DO:
-Navabr
-The template (columns L & R, bloc L M R (Top, Bottom), Footer
-Blocs system
-Page module system
-Overloaded BT5 templates for the profile module
-Overloaded BT5 templates for the profile pm
-Other things...
+TO DO:
+- Navabr
+- The template (columns L & R, bloc L M R (Top, Bottom), Footer
+- Blocs system
+- Pages module system
+- Overloaded BT5 templates for the profile module
+- Overloaded BT5 templates for the profile pm
+- Other things...
 
 Alain01
 21/01/2023
