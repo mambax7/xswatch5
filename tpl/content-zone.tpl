@@ -3,7 +3,7 @@
 <{elseif $xoBlocks.canvas_left}>
     <div class="col-md-9">
 <{elseif $xoBlocks.canvas_right}>
-    <div class="col-sm-9">
+    <div class="col-md-9">
 <{else}>
     <div class="col-12">
 <{/if}>

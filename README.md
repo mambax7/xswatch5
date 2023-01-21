@@ -1,7 +1,33 @@
-xSwatch5
-=======
+Migrating xSwatch4 to xSwatch5
+==============================
 
-xSwatch5 is a theme for [XOOPS 2.5.11](https://xoops.org) that is based on [Bootstrap](https://getbootstrap.com) 5.0.0.
+Authors : alain01, 
+
+- Added 4 new variants: morph, quartz, vapo, zephyr
+- Updated bootstrap 4.6.1 librairies to bootstrap 5.2.3 librairies
+- Updated several files at the root directoty
+- Upadating theme.tpl
+- Updated Jumbotron (/tpl/jumbotron.tpl)
+- Updated Slider (/tpl/slider.tpl)
+added new style to vertical slide for BT5 compatibility in new-style-bt5.css
+By default, horizontal slide
+
+- TO DO:
+Navabr
+The template (columns L & R, bloc L M R (Top, Bottom), Footer
+Blocs system
+Page module system
+Overloaded BT5 templates for the profile module
+Overloaded BT5 templates for the profile pm
+Other things...
+
+Alain01
+21/01/2023
+
+xSwatch5
+========
+
+xSwatch5 is a theme for [XOOPS 2.5.11](https://xoops.org) that is based on [Bootstrap](https://getbootstrap.com) 5.2.3
 
 The default theme is based on [Bootswatch Cerulean](https://bootswatch.com/cerulean/).
 
@@ -16,27 +42,33 @@ Features:
 Customize xSwatch:
 
 - 25 themes in 1 theme (Preview : [Bootswatch](https://bootswatch.com/))
-- Dual theme light and dark media query responsive operation - 
+
+- Dual theme light and dark media query responsive operation: 
   Two files control which themes are used, _tpl/xswatchCss.tpl_ and _tpl/xswatchDarkCss.tpl_.
-  In the file _tpl/xswatchCss.tpl_, edit the bottom line to match the Bootswatch theme of your
-  choice for use with prefers-color-scheme light media queries. By default, the line reads 
-  **css-cerulean**. In the file _tpl/xswatchDarkCss.tpl_, edit the bottom line to match the Bootswatch theme of your
-  choice for use with dark media queries.  By default, the line reads **css-slate**. 
+  In the file _tpl/xswatchCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice for use with prefers-color-scheme light media queries.
+  By default, the line reads **css-cerulean**.
+  
+  In the file _tpl/xswatchDarkCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice for use with dark media queries.
+  By default, the line reads **css-slate**. 
   Your site will then follow the use's browser or OS preference to choose light or dark.
-- Single theme operation - 
-  Edit _tpl/xswatchDarkCss.tpl_ and delete the line with the file name, and the theme will
-  be locked to whatever theme is specified in the file _tpl/xswatchCss.tpl_. No consideration
-  of prefers-color-scheme queries will be made. In the file _tpl/xswatchCss.tpl_, edit the 
-  bottom line to match the Bootswatch theme of your choice. By default, the line reads 
-  **css-cerulean**. To change to a dark theme, for example, change it to **css-slate**.
-  You can pick from any of the 21 variations listed in the comments in _tpl/xswatchCss.tpl_  
-- customize the Navigation Bar in tpl/nav-menu.tpl and language/*/main.php to match your system and installed modules
-- customize the Jumbotron in theme.tpl and tpl/jumbotron.tpl
-- enable a slider in theme.tpl and tpl/slider.tpl
-- customize cookie consent in tpl/cookieConsent.tpl, or disable include in theme.tpl
-- customize or disable inbox alert in theme.tpl and tpl/inboxAlert.tpl
-- for best experience install both the PM and Profile modules
-- customize xmnews block : for column blocks, copy xmnews_block_colonnes.tpl to xmnews_block.tpl (copy xmnews_block_lignes.tpl to xmnews_block.tpl to return to initial state)
+
+- Single theme operation: 
+  Edit _tpl/xswatchDarkCss.tpl_ and delete the line with the file name, and the theme will be locked to whatever theme is specified in the file _tpl/xswatchCss.tpl_.
+  No consideration of prefers-color-scheme queries will be made.
+  In the file _tpl/xswatchCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice.
+  By default, the line reads **css-cerulean**.
+  To change to a dark theme, for example, change it to **css-slate**.
+  You can pick from any of the 25 variations listed in the comments in _tpl/xswatchCss.tpl_  
+
+- Customize the Navigation Bar in tpl/nav-menu.tpl and language/*/main.php to match your system and installed modules
+- Customize the Jumbotron in theme.tpl and tpl/jumbotron.tpl
+- Enable a slider in theme.tpl and tpl/slider.tpl
+- Customize cookie consent in tpl/cookieConsent.tpl, or disable include in theme.tpl
+- Customize or disable inbox alert in theme.tpl and tpl/inboxAlert.tpl
+- For best experience install both the PM and Profile modules
+- Customize xmnews block : for column blocks, copy xmnews_block_colonnes.tpl to xmnews_block.tpl (copy xmnews_block_lignes.tpl to xmnews_block.tpl to return to initial state)
+- Customize _css/my_xoops.css to add your css definitions and override Bootstrap definitions for the light variant or the unique variant
+- Customize _css/my_xoops_dark.css to add your css definitions and override Bootstrap definitions for the dark variant
 
 In addition to templates for the modules included in XOOPS (pm, profile and system,) Bootstrap v4.4 templates are included for the following modules:
 

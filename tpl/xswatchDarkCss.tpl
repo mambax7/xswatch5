@@ -5,7 +5,11 @@ Leave blank to not use the prefers-color-scheme media query, and just use
 the theme selected in xswatchCss.tpl
 
 The subset of valid themes that are considered dark are:
- css-cyborg    css-darkly    css-slate     css-solar     css-superhero
+ css-cyborg
+ css-darkly
+ css-slate
+ css-solar
+ css-superhero
  css-vapor
 *}>
 css-slate

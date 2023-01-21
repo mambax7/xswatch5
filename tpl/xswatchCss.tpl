@@ -2,7 +2,7 @@
 Valid values are:
  css-cerulean  css-cosmo     css-cyborg    css-darkly    css-flatly
  css-journal   css-litera    css-lumen     css-lux       css-materia
- css-minty     css-morph     css-pulse     css-quartz    css-sandstone
+ css-minty     css-morph     css-quartz    css-pulse     css-sandstone
  css-simplex   css-sketchy   css-slate     css-solar     css-spacelab
  css-superhero css-united    css-vapor     css-yeti      css-zephyr
 

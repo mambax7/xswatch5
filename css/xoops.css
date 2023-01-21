@@ -35,7 +35,7 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(../images/pagneutral.gif);
+    background-image: url(/images/pagneutral.gif);
 }
 
 .pagact {
@@ -43,7 +43,7 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(../images/pagact.gif);
+    background-image: url(/images/pagact.gif);
 }
 
 .paginact {
@@ -51,7 +51,7 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(../images/paginact.gif);
+    background-image: url(/images/paginact.gif);
 }
 
 /* For required elements in XOOPS form */
@@ -1211,15 +1211,5 @@ div.jGrowl div.jGrowl-closer {
 
 #xswatch-popup-body {
     margin: 1em;
-    background: linear-gradient(135deg, #ffffff 0%,#eff6f9 88%,#cedde5 97%,#90c7e5 100%);
-}
-
-/* for captcha text */
-.captchatext {
-	font-style: normal;
-	font-weight: bold;
-	font-size: 100%;
-	color: #333;
-	border: 1px solid #333;
-	padding: 1px 5px;	
+    background: linear-gradient(135deg, #ffffff 0%,#eff6f9 88%,#cedde5 97%, #90c7e5 100%);
 }

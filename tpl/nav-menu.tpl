@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
                         <a class="nav-link" href="<{$xoops_url}>"><{$smarty.const.THEME_HOME}></a>
@@ -15,7 +15,7 @@
 
                     <{xoInboxCount assign='unread_count'}>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-account-menu" role="button"><{$smarty.const.THEME_ACCOUNT}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-account-menu"><{$smarty.const.THEME_ACCOUNT}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-account-menu">
                             <{if $xoops_isuser|default:false}>
                             <a class="dropdown-item" href="<{$xoops_url}>/user.php"><{$smarty.const.THEME_ACCOUNT_EDIT}></a>
@@ -34,17 +34,17 @@
 
                     <!-- begin custom menus - customize these for your system -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><{$smarty.const.THEME_MODULE1}></a>
+                        <a class="nav-link" href="javascript:;"><{$smarty.const.THEME_MODULE1}></a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-custom-menu"><{$smarty.const.THEME_MODULE2}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-custom-menu"><{$smarty.const.THEME_MODULE2}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-custom-menu">
-                            <a class="dropdown-item" href="<{$xoops_url}>/modules/xmnews/">Topic 1</a>
-                            <a class="dropdown-item" href="<{$xoops_url}>/modules/xmnews/">Topic 2</a>
-                            <a class="dropdown-item" href="<{$xoops_url}>/modules/xmnews/">Topic 3</a>
-                            <a class="dropdown-item" href="<{$xoops_url}>/modules/xmnews/">Topic 4</a>
-                            <a class="dropdown-item" href="<{$xoops_url}>/modules/xmnews/">Topic 5</a>
+                            <a class="dropdown-item" href="javascript:;">Topic 1</a>
+                            <a class="dropdown-item" href="javascript:;">Topic 2</a>
+                            <a class="dropdown-item" href="javascript:;">Topic 3</a>
+                            <a class="dropdown-item" href="javascript:;">Topic 4</a>
+                            <a class="dropdown-item" href="javascript:;">Topic 5</a>
                         </div>
                     </li>
 
@@ -58,12 +58,14 @@
                     <!-- end custom menus -->
                 </ul>
                 <{if $xoops_search|default:false}>
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0" role="search" action="<{xoAppUrl search.php}>" method="get">
-                        <div class="input-group mb-3">
+						<div class="input-group mb-3">
 							<input class="form-control" type="text" name="query" placeholder="<{$smarty.const.THEME_SEARCH_TEXT}>">
-							<button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<div class="input-group-append">
+								<button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							</div>
 						</div>
 						<input type="hidden" name="action" value="results">
                     </form>
