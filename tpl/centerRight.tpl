@@ -1,5 +1,5 @@
 <{if $xoBlocks.page_topright}>
-    <div class="col-6 ml-auto">
+    <div class="col-6 ms-auto">
         <{foreach item=block from=$xoBlocks.page_topright}>
             <div class="xoops-blocks">
                 <{if $block.title}><h4><{$block.title}></h4><{/if}>
