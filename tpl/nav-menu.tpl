@@ -3,7 +3,7 @@
             <a href="<{$xoops_url}>" class="navbar-brand xlogo" title="<{$xoops_sitename}>">
                 <img src="<{$xoops_imageurl}>images/logo.png" alt="<{$xoops_sitename}>">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -15,7 +15,7 @@
 
                     <{xoInboxCount assign='unread_count'}>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-account-menu"><{$smarty.const.THEME_ACCOUNT}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-account-menu"><{$smarty.const.THEME_ACCOUNT}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-account-menu">
                             <{if $xoops_isuser|default:false}>
                             <a class="dropdown-item" href="<{$xoops_url}>/user.php"><{$smarty.const.THEME_ACCOUNT_EDIT}></a>
@@ -38,7 +38,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="xswatch-custom-menu"><{$smarty.const.THEME_MODULE2}> <span class="caret"></span></a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="xswatch-custom-menu"><{$smarty.const.THEME_MODULE2}> <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="xswatch-custom-menu">
                             <a class="dropdown-item" href="javascript:;">Topic 1</a>
                             <a class="dropdown-item" href="javascript:;">Topic 2</a>
@@ -58,7 +58,7 @@
                     <!-- end custom menus -->
                 </ul>
                 <{if $xoops_search|default:false}>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0" role="search" action="<{xoAppUrl search.php}>" method="get">
 						<div class="input-group mb-3">
