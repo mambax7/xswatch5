@@ -11,9 +11,9 @@ Authors : alain01,
 - Updated Slider (/tpl/slider.tpl)
 added new style to vertical slide for BT5 compatibility in new-style-bt5.css
 By default, horizontal slide
+- Navbar
 
 TO DO:
-- Navabr
 - The template (columns L & R, bloc L M R (Top, Bottom), Footer
 - Blocs system
 - Pages module system
