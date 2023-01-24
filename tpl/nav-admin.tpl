@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="admin-navbar-collapse">
-                <div class="navbar-nav mr-auto">
+                <div class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="<{xoAppUrl /}>"><span class="fa fa-home"></span> <{$smarty.const.THEME_TOOLBAR_HOME}></a></li>
                     <li class="nav-item"><a class="nav-link" href="javascript:xswatchEnableBlockEdits();"><span class="fa fa-edit"></span> <{$smarty.const.THEME_TOOLBAR_SHOW_BLOCK_EDIT}></a></li>
                     <li class="nav-item dropup">
