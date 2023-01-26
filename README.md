@@ -14,9 +14,11 @@ By default, horizontal slide
 - Navbar
 - The template (columns L & R, bloc L M R (Top, Bottom), Footer
 - Admin Toolbar
+- Blocs system "login": Done
+- Blocs system "Main Menu": Done
 
 TO DO:
-- Blocs system
+- Other blocs system
 - Pages module system
 - Overloaded BT5 templates for the profile module
 - Overloaded BT5 templates for the profile pm
