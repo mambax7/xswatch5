@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<{$xoops_langcode}>">
+<html lang="<{$xoops_langcode}>" dir="<{$xoops_text_direction|default:'ltr'}>">
 <head>
     <meta charset="<{$xoops_charset}>">
     <meta name="robots" content="noindex, nofollow" />
@@ -11,20 +11,21 @@
     <link href="<{$xoops_url}>/favicon.ico" rel="shortcut icon">
 
     <{include file="$themePath/tpl/xswatchCss.tpl" assign="xswatchCss"}>
-    <{include file="$themePath/tpl/xswatchDarkCss.tpl" assign="xswatchDarkCss"}>
-    <{if $xswatchDarkCss == ''}>
-        <link rel="stylesheet" type="text/css" href="<{$themeUrl}><{$xswatchCss}>/xoops.css">
-        <link rel="stylesheet" type="text/css" href="<{$themeUrl}><{$xswatchCss}>/bootstrap.min.css">
-    <{else}>
-        <link rel="stylesheet" media="(prefers-color-scheme: light)" href="<{$themeUrl}><{$xswatchCss}>/xoops.css">
-        <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="<{$themeUrl}><{$xswatchDarkCss}>/xoops.css">
-        <link rel="stylesheet" media="(prefers-color-scheme: light)" href="<{$themeUrl}><{$xswatchCss}>/bootstrap.min.css">
-        <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="<{$themeUrl}><{$xswatchDarkCss}>/bootstrap.min.css">
-    <{/if}>
+    <link rel="stylesheet" type="text/css" href="<{$themeUrl}><{$xswatchCss}>/xoops.css">
+    <link rel="stylesheet" type="text/css" href="<{$themeUrl}><{$xswatchCss}>/bootstrap.min.css">
+
+    <script>
+    (function() {
+        const stored = localStorage.getItem('xswatch-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    })();
+    </script>
     <script src="<{$xoops_url}>/browse.php?Frameworks/jquery/jquery.js"></script>
     <script src="<{$themeUrl}>js/bootstrap.bundle.min.js"></script>
 
-    <{if $closeHead|default:false}>
+    <{if !empty($closeHead)}>
 </head>
 <body id="xswatch-popup-body">
 <{/if}>

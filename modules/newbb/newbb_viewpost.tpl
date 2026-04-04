@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/index.php"><{$smarty.const._MD_NEWBB_FORUMHOME}></a></li>
 
         <!-- If is subforum-->
-        <{if $parent_forum|default:''}>
+        <{if isset($parent_forum)}>
         <li class="breadcrumb-item"><a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/viewforum.php?forum=<{$parent_forum}>"><{$parent_name}></a></li>
         <{/if}>
 
@@ -13,10 +13,10 @@
     </ol>
 </div>
 <div class="clear"></div>
-<{if $viewer_level gt 1}>
+<{if isset($viewer_level) && $viewer_level > 1}>
     <div class="right" id="admin">
-        <{if $mode gt 1}>
-        <form class="form-inline" name="form_posts_admin" action="action.post.php" method="POST" onsubmit="if(window.document.form_posts_admin.op.value &lt; 1){return false;}">
+        <{if isset($mode) && $mode > 1}>
+        <form class="d-flex flex-wrap gap-2" name="form_posts_admin" action="action.post.php" method="POST" onsubmit="if(window.document.form_posts_admin.op.value &lt; 1){return false;}">
             <div class="form-row align-items-center">
                 <div class="col-auto">
                     <div class="form-check mb-2">
@@ -30,9 +30,9 @@
                     <select name="op" class="custom-select mb-2">
                         <option value="0"><{$smarty.const._SELECT}></option>
                         <option value="delete"><{$smarty.const._DELETE}></option>
-                        <{if $status eq "pending"}>
+                        <{if isset($status) &&  $status == "pending"}>
                         <option value="approve"><{$smarty.const._MD_NEWBB_APPROVE}></option>
-                        <{elseif $status eq "deleted"}>
+                        <{elseif isset($status) &&  $status == "deleted"}>
                         <option value="restore"><{$smarty.const._MD_NEWBB_RESTORE}></option>
                         <{/if}>
                     </select>
@@ -60,9 +60,9 @@
     </div>
 <{/if}>
 <div class="clear"></div>
-<div class="text-right">
+<div class="text-end">
 <a id="threadtop"></a><a class="btn btn-info" href="#threadbottom" title="<{$smarty.const._MD_NEWBB_BOTTOM}>">
-    <span class="fa fa-arrow-circle-down"></span>
+    <span class="fa-solid fa-circle-down"></span>
 </a>
 </div>
 <div>
@@ -85,7 +85,7 @@
                         onchange="if(this.options[this.selectedIndex].value.length >0 )    { window.document.location=this.options[this.selectedIndex].value;}"
                 >
                     <option value=""><{$smarty.const._MD_NEWBB_VIEWMODE}></option>
-                    <{foreach item=act from=$viewmode_options}>
+                    <{foreach item=act from=$viewmode_options|default:null}>
                     <option value="<{$act.link}>"><{$act.title}></option>
                     <{/foreach}>
                 </select>
@@ -93,19 +93,19 @@
         </div>
 
 
-    <div class="generic-pagination col text-right`">
+    <div class="generic-pagination col text-end`">
         <{$pagenav|replace:'form':'div'|replace:'id="xo-pagenav"':''}>
     </div>
 </div>
 <div class="clear"></div>
 <br>
 
-<{foreach item=post from=$posts}>
+<{foreach item=post from=$posts|default:null}>
 <{include file="db:newbb_thread.tpl" topic_post=$post}>
 <!-- irmtfan hardcode removed style="padding: 5px;float: right; text-align:right;" -->
 <div class="pagenav">
     <a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/viewtopic.php?topic_id=<{$post.topic_id}>"><strong><{$smarty.const._MD_NEWBB_VIEWTOPIC}></strong></a>
-    <{if !$forum_name|default:'' }>
+    <{if !isset($forum_name) }>
         |
         <a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/viewforum.php?forum=<{$post.forum_id}>"><strong><{$smarty.const._MD_NEWBB_VIEWFORUM}></strong></a>
     <{/if}>
@@ -115,19 +115,19 @@
 <br>
 <{/foreach}>
 
-<{if $mode gt 1}>
+<{if isset($mode) && $mode > 1}>
     </form>
 <{/if}>
 
 <br>
 <div>
-    <div class="text-right">
+    <div class="text-end">
         <a id="threadbottom"></a><a class="btn btn-info" href="#threadtop" title="<{$smarty.const._MD_NEWBB_TOP}>">
-            <span class="fa fa-arrow-circle-up"></span>
+            <span class="fa-solid fa-circle-up"></span>
         </a>
     </div>
     <!-- irmtfan hardcode removed style="float: right; text-align:right;" -->
-    <div class="generic-pagination col text-right mt-2">
+    <div class="generic-pagination col text-end mt-2">
         <{$pagenav|replace:'form':'div'|replace:'id="xo-pagenav"':''}>
         <!-- irmtfan to solve nested forms and id="xo-pagenav" issue -->
     </div>
@@ -151,7 +151,7 @@
 </div>
 <div class="clear"></div>
 <br>
-<{if $online|default:''}>
+<{if isset($online)}>
     <br>
     <{include file="db:newbb_online.tpl"}>
 <{/if}>

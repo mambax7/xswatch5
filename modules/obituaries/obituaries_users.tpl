@@ -9,7 +9,7 @@
         <a href="<{$xoops_url}>/modules/obituaries/index.php"><img src="<{$xoops_url}>/modules/obituaries/assets/images/logoModule.png" alt="<{$module.name}>" class="img-thumbnail"/></a>
     </p>
 <div class="row">
-        <{foreach item=obituaries_user from=$obituaries_users}>
+        <{foreach item=obituaries_user from=$obituaries_users|default:null}>
     <div class="card col-8 col-sm-6 col-md-4 col-xl-3">
         <{if trim($obituaries_user.obituaries_full_imgurl) != ''}>
          <img class="card-img-top img-fluid" src="<{$obituaries_user.obituaries_full_imgurl}>" alt="<{$obituaries_user.obituaries_href_title}>">
@@ -22,7 +22,7 @@
             </h5>
             <p class="card-text text-muted"><{$obituaries_user.obituaries_formated_date}></p>
             <p class="card-text"><{$obituaries_user.obituaries_description|truncateHtml:20:'...'}>
-            <a class="stretched-link" href="<{$smarty.const.OBITUARIES_URL}>user.php?obituaries_id=<{$obituaries_user.obituaries_id}>" title="<{$obituaries_user.obituaries_href_title}>"><span class="fa fa-forward"></span></a>
+            <a class="stretched-link" href="<{$smarty.const.OBITUARIES_URL}>user.php?obituaries_id=<{$obituaries_user.obituaries_id}>" title="<{$obituaries_user.obituaries_href_title}>"><span class="fa-solid fa-forward"></span></a>
             </p>
         </div>
     </div>
@@ -33,7 +33,7 @@
 <{/if}>
 
 <{if isset($pagenav)}>
-    <div class="generic-pagination col text-right mt-2">
+    <div class="generic-pagination col text-end mt-2">
         <{$pagenav|replace:'form':'div'|replace:'id="xo-pagenav"':''|replace:' //':'/'}>
     </div>
 <{/if}>

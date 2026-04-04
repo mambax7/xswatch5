@@ -1,6 +1,6 @@
 <{if ($pageNavType == 'Nav')}>
 	<ul class="pagination pagination-sm justify-content-end">
-	 <{foreach item=itemNavigation from=$pageNavigation}>
+	 <{foreach item=itemNavigation from=$pageNavigation|default:null}>
 		<{if ($itemNavigation.option == 'first')}>
 			<li class="page-item">
 				<a class="page-link" href="<{$itemNavigation.url}>">
@@ -32,7 +32,7 @@
 	</ul>
 <{/if}>
 <{if ($pageNavType == 'Select')}>
-	<form name="pagenavform" class="form-inline justify-content-end">
+	<form name="pagenavform" class="d-flex justify-content-end">
 		<div class="form-group">
 			<select class="form-control form-control-sm" name="pagenavselect" id="pagenavselect" onchange="location=this.options[this.options.selectedIndex].value;">
 				<{$pageNavigation.select}>
@@ -48,7 +48,7 @@
 		<div class="col" style="line-height: 18px">
 			<table>
 				<tr>
-				 <{foreach item=itemNavigation from=$pageNavigation}>
+				 <{foreach item=itemNavigation from=$pageNavigation|default:null}>
 					<{if ($itemNavigation.option == 'first')}>
 						<td class="pagneutral">
 							<a href="<{$itemNavigation.url}>"><u>&lt;</u></a>
@@ -98,4 +98,3 @@
 		</div>
 	</div>
 <{/if}>
-  

@@ -1,15 +1,9 @@
-<{* pick the css directory you want to use for the dark theme on the bottom line.
-That theme will be used for media="(prefers-color-scheme: dark)"
+<{* DEPRECATED: This file is no longer used.
 
-Leave blank to not use the prefers-color-scheme media query, and just use
-the theme selected in xswatchCss.tpl
+Light/dark mode is now handled by Bootstrap 5 Color Modes API.
+Each Bootswatch variant includes both light and dark styles in a single CSS file.
+The navbar toggle button allows users to switch between modes.
+User preference is saved to localStorage.
 
-The subset of valid themes that are considered dark are:
- css-cyborg
- css-darkly
- css-slate
- css-solar
- css-superhero
- css-vapor
+This file is kept for reference only.
 *}>
-css-slate

@@ -6,7 +6,7 @@
         </div>
         <{include file="db:system_comment.tpl" comment=$comments[i]}>
 
-        <{if $show_threadnav == true}>
+        <{if isset($show_threadnav) && $show_threadnav == true}>
             <a href="<{$comment_url}>" title="<{$lang_top}>"><{$lang_top}></a>
             <a href="<{$comment_url}>&amp;com_id=<{$comments[i].pid}>&amp;com_rootid=<{$comments[i].rootid}>#newscomment<{$comments[i].pid}>"><{$lang_parent}></a>
         <{/if}>
@@ -25,7 +25,7 @@
                     <strong><{$lang_posted}></strong>
                 </div>
             </div>
-            <{foreach item=reply from=$comments[i].replies}>
+            <{foreach item=reply from=$comments[i].replies|default:null}>
                 <div class="row">
                     <div class="col-md-4">
                         <{$reply.prefix}> <a href="<{$comment_url}>&amp;com_id=<{$reply.id}>&amp;com_rootid=<{$reply.root_id}>" title=""><{$reply.title}></a>
@@ -44,10 +44,10 @@
         <{/if}>
     <{/section}>
 
-    <{if $commentform}>
+    <{if isset($commentform)}>
         <div class="aligncenter">
-            <button class="btn-comment btn btn-primary btn-md" data-toggle="modal" data-target="#comments-form">
-                <span class="fa fa-comment"></span> <{$smarty.const.THEME_COMMENT_ADD}>
+            <button class="btn-comment btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#comments-form">
+                <span class="fa-solid fa-comment"></span> <{$smarty.const.THEME_COMMENT_ADD}>
             </button>
         </div>
         <!-- Modal -->
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

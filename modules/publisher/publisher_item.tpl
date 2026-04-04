@@ -4,19 +4,19 @@
         <h2>
             <{$item.titlelink}>
             <span style="font-size: 11px; padding: 0; margin: 0; line-height: 12px; opacity:0.8;-moz-opacity:0.8;">
-                    <span class="fa fa-tag"></span>&nbsp;<{$item.category}>
+                    <span class="fa-solid fa-tag"></span>&nbsp;<{$item.category}>
                 </span>
             <span style="font-size: 11px; padding: 0 0 0 16px; margin: 0; line-height: 12px; opacity:0.8;-moz-opacity:0.8;">
-                    <span class="fa fa-user"></span>&nbsp;<{$item.who}>
+                    <span class="fa-solid fa-user"></span>&nbsp;<{$item.who}>
                 </span>
             <span style="font-size: 11px; padding: 0 0 0 16px; margin: 0; line-height: 12px; opacity:0.8;-moz-opacity:0.8;">
-                    <span class="fa fa-calendar"></span>&nbsp;<{$item.when}>
+                    <span class="fa-solid fa-calendar"></span>&nbsp;<{$item.when}>
                 </span>
             <span style="font-size: 11px; padding: 0 0 0 16px; margin: 0; line-height: 12px; opacity:0.8;-moz-opacity:0.8;">
-                    <span class="fa fa-comment"></span>&nbsp;<{$item.comments}>
+                    <span class="fa-solid fa-comment"></span>&nbsp;<{$item.comments}>
                 </span>
             <span style="font-size: 11px; padding: 0 0 0 16px; margin: 0; line-height: 12px; opacity:0.8;-moz-opacity:0.8;">
-                    <span class="fa fa-check-circle-o"></span>&nbsp;<{$item.counter}> <{$smarty.const._MD_PUBLISHER_READS}>
+                    <span class="fa-solid fa-circle-check"></span>&nbsp;<{$item.counter}> <{$smarty.const._MD_PUBLISHER_READS}>
                 </span>
         </h2>
 
@@ -27,7 +27,7 @@
     <{if $item.image_path || $item.images}>
         <figure>
             <{if $item.images}>
-            <div id="articleslider" class="carousel slide" data-ride="carousel">
+            <div id="articleslider" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <{assign var=active value=' active'}>
                     <{if $item.image_path}>
@@ -39,7 +39,7 @@
                     </div>
                     <{assign var=active value=''}>
                     <{/if}>
-                    <{foreach item=image from=$item.images name=foo}>
+                    <{foreach item=image from=$item.images|default:null name=foo}>
                     <div class="carousel-item<{$active}>">
                         <img class="d-block w-100" src="<{$image.path}>" alt="<{$image.name}>"/>
                         <div class="carousel-caption d-none d-md-block">
@@ -48,14 +48,14 @@
                     </div>
                     <{assign var=active value=''}>
                     <{/foreach}>
-                    <a class="carousel-control-prev" href="#articleslider" role="button" data-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#articleslider" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only"<{$smarty.const.THEME_CONTROL_PREVIOUS}>/span>
-                    </a>
-                    <a class="carousel-control-next" href="#articleslider" role="button" data-slide="next">
+                        <span class="visually-hidden"><{$smarty.const.THEME_CONTROL_PREVIOUS}></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#articleslider" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only"<{$smarty.const.THEME_CONTROL_NEXT}>/span>
-                    </a>
+                        <span class="visually-hidden"><{$smarty.const.THEME_CONTROL_NEXT}></span>
+                    </button>
                 </div>
             </div>
             <{elseif $item.image_path}>
@@ -70,24 +70,24 @@
     </div>
 
 </div>
-<{if $pagenav}>
-    <div class="pub_pagenav text-right">
+<{if isset($pagenav)}>
+    <div class="pub_pagenav text-end">
         <{$pagenav}>
     </div>
 <{/if}>
 <div class="clearfix"></div>
 <div class="pub_article_extras">
-    <{if $rating_enabled|default:false}>
-        <div class="pull-left">
+    <{if !empty($rating_enabled)}>
+        <div class="float-start">
             <small><{$item.ratingbar}></small>
         </div>
     <{/if}>
-    <div class="pull-right text-right">
+    <div class="float-end text-end">
 
-        <{if $display_print_link|default:0 !=0}>
+        <{if isset($display_print_link) && $display_print_link !=0}>
             <{$item.printlink}>
         <{/if}>
-        <{if $display_pdf_button|default:0 !=0}>
+        <{if isset($display_pdf_button) && $display_pdf_button !=0}>
             <{$item.pdfbutton}>
         <{/if}>
 
@@ -96,7 +96,7 @@
     <div class="clearfix"></div>
 </div>
 
-<{if $itemfooter}>
+<{if isset($itemfooter)}>
     <div class="panel-footer">
         <small><{$itemfooter}></small>
     </div>
@@ -114,7 +114,7 @@
         </tr>
         </thead>
         <tbody>
-        <{foreach item=file from=$item.files}>
+        <{foreach item=file from=$item.files|default:null}>
             <tr>
                 <td>
                     <{if $file.mod}>
@@ -126,8 +126,8 @@
                                  alt="<{$smarty.const._CO_PUBLISHER_DELETEFILE}>"/></a>
                     <{/if}>
                     <a href="<{$publisher_url}>/visit.php?fileid=<{$file.fileid}>" target="_blank">
-                        <img src="<{$publisher_url}>/assets/images/links/file.gif" title="<{$lang_download_file}>"
-                             alt="<{$smarty.const._MD_PUBLISHER_DOWNLOAD_FILE}>"/>&nbsp;<strong><{$file.name}></strong>
+                        <img src="<{$publisher_url}>/assets/images/links/file.gif" title="<{$lang_download_file|default:''}>"
+                             alt="<{$smarty.const._MD_PUBLISHER_DOWNLOAD_FILE}>"/>&nbsp;<strong><{$file.name|default:''}></strong>
                     </a>
 
                     <div style="font-size:12px;"><{$file.description}></div>
@@ -146,7 +146,7 @@
 <!-- Items by same Author -->
 <{if $perm_author_items && $item.uid != 0}>
     <div class="pub_article_extras">
-        <a class="btn btn-primary btn-lg btn-block" href="<{$publisher_url}>/author_items.php?uid=<{$item.uid}>">
+        <a class="btn btn-primary btn-lg w-100" href="<{$publisher_url}>/author_items.php?uid=<{$item.uid}>">
             <{$smarty.const._MD_PUBLISHER_ITEMS_SAME_AUTHOR}>
         </a>
     </div>
@@ -154,10 +154,10 @@
 <!-- END Items by same Author -->
 
 <!-- Other articles in the category -->
-<{if $other_items == "previous_next"}>
-    <{if $previous_item_link|default:'' || $next_item_link|default:''}>
-        <{if $previous_item_link|default:''}>
-            <div class="pull-left">
+<{if isset($other_items) && $other_items == "previous_next"}>
+    <{if !empty($previous_item_link) || !empty($next_item_link)}>
+        <{if !empty($previous_item_link)}>
+            <div class="float-start">
                 <a href="<{$previous_item_url}>">
                     <img style="vertical-align: middle;" src="<{$publisher_images_url}>/links/previous.gif" title="<{$smarty.const._MD_PUBLISHER_PREVIOUS_ITEM}>"
                          alt="<{$smarty.const._MD_PUBLISHER_PREVIOUS_ITEM}>"/>
@@ -165,8 +165,8 @@
                 <{$previous_item_link}>
             </div>
         <{/if}>
-        <{if $next_item_link|default:''}>
-            <div class="text-right">
+        <{if !empty($next_item_link)}>
+            <div class="text-end">
                 <{$next_item_link}>
                 <a href="<{$next_item_url}>">
                     <img style="vertical-align: middle;" src="<{$publisher_images_url}>/links/next.gif" title="<{$smarty.const._MD_PUBLISHER_NEXT_ITEM}>"
@@ -175,28 +175,28 @@
             </div>
         <{/if}>
     <{/if}>
-<{elseif $other_items == 'all'}>
+<{elseif isset($other_items) && $other_items == 'all'}>
     <table class="table table-bordered table-sm" style="margin: 15px 0;">
         <thead>
         <tr>
             <th><{$smarty.const._MD_PUBLISHER_OTHER_ITEMS}></th>
-            <{if $display_date_col == 1}>
+            <{if isset($display_date_col) && $display_date_col == 1}>
                 <th style="text-align: center;"><{$smarty.const._MD_PUBLISHER_DATESUB}></th>
             <{/if}>
-            <{if $display_hits_col == 1}>
+            <{if isset($display_hits_col) && $display_hits_col == 1}>
                 <th style="text-align: center;"><{$smarty.const._MD_PUBLISHER_HITS}></th>
             <{/if}>
         </tr>
         </thead>
         <tbody>
         <!-- Start item loop -->
-        <{foreach item=item from=$items}>
+        <{foreach item=item from=$items|default:null}>
             <tr>
                 <td class="even" align="left"><{$item.titlelink}></td>
-                <{if $display_date_col == 1}>
+                <{if isset($display_date_col) && $display_date_col == 1}>
                     <td style="text-align: center;"><{$item.datesub}></td>
                 <{/if}>
-                <{if $display_hits_col == 1}>
+                <{if isset($display_hits_col) && $display_hits_col == 1}>
                     <td style="text-align: center;"><{$item.counter}></td>
                 <{/if}>
             </tr>
@@ -207,7 +207,7 @@
 <{/if}>
 <!-- END Other articles in the category -->
 
-<{if $tagbar|default:false}>
+<{if !empty($tagbar)}>
     <p><{include file="db:tag_bar.tpl"}></p>
 <{/if}>
 

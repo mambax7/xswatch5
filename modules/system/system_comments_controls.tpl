@@ -1,6 +1,6 @@
 <!-- Comment Option Button trigger modal -->
 <div class="mb-2">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentOptionModalLong">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentOptionModalLong">
     <{$smarty.const.THEME_COMMENT_OPTIONS}>
 </button>
 </div>
@@ -11,9 +11,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="commentOptionModalLongTitle"><{$smarty.const.THEME_COMMENT_OPTIONS}></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" method="get" action="<{$pageName}>">
@@ -26,7 +24,7 @@
                     <div class="form-group">
                     <{$commentRefreshButton->render()}>
                     </div>
-                    <{if ($commentPostButton|default:false) }>
+                    <{if !empty($commentPostButton)}>
                     <div class="form-group">
                     <{$commentPostButton->render()}>
                     </div>

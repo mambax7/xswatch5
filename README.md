@@ -1,101 +1,113 @@
-Migrating xSwatch4 to xSwatch5
-==============================
-
-Authors : alain01, 
-
-- Added 4 new variants: morph, quartz, vapo, zephyr
-- Updated bootstrap 4.6.1 librairies to bootstrap 5.2.3 librairies
-- Updated several files at the root directoty
-- Updating theme.tpl
-- Updated Jumbotron (/tpl/jumbotron.tpl)
-- Updated Slider (/tpl/slider.tpl)
-added new style to vertical slide for BT5 compatibility in new-style-bt5.css
-By default, horizontal slide
-- Navbar
-- The template (columns L & R, bloc L M R (Top, Bottom), Footer
-- Admin Toolbar
-- Blocs system "login": Done
-- Blocs system "Main Menu": Done
-
-TO DO:
-- Other blocs system
-- Pages module system
-- Overloaded BT5 templates for the profile module
-- Overloaded BT5 templates for the profile pm
-- Other things...
-
-Alain01
-21/01/2023
-
 xSwatch5
-========
+=======
 
-xSwatch5 is a theme for [XOOPS 2.5.11](https://xoops.org) that is based on [Bootstrap](https://getbootstrap.com) 5.2.3
+A Bootstrap 5 theme for [XOOPS 2.5.12](https://xoops.org), based on [Bootswatch](https://bootswatch.com/) 5.3.8.
 
-The default theme is based on [Bootswatch Cerulean](https://bootswatch.com/cerulean/).
+The default variant is [Bootswatch Cerulean](https://bootswatch.com/cerulean/).
 
-Features:
+## Features
 
-- Emphasis on better mobile experience
-- Self hosted, with no off domain resources required
-- Built in cookie consent
-- Administrator toolbar with block edit feature
-- Switch between light and dark theme based on media queries
+- **21 Bootswatch themes in one** — switch variants live from the navbar
+- **Light/dark mode** — Bootstrap 5 Color Modes API with one-click toggle
+- **RTL support** — automatic layout mirroring for right-to-left languages
+- **Mobile-first** responsive design
+- **Self-hosted** — no off-domain resources required
+- **Cookie consent** banner (Silktide)
+- **Administrator toolbar** with inline block editing
+- **Module templates** for 13 popular XOOPS modules
 
-Customize xSwatch:
+## Theme Switcher
 
-- 25 themes in 1 theme (Preview : [Bootswatch](https://bootswatch.com/))
+The navbar includes two controls:
 
-- Dual theme light and dark media query responsive operation: 
-  Two files control which themes are used, _tpl/xswatchCss.tpl_ and _tpl/xswatchDarkCss.tpl_.
-  In the file _tpl/xswatchCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice for use with prefers-color-scheme light media queries.
-  By default, the line reads **css-cerulean**.
-  
-  In the file _tpl/xswatchDarkCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice for use with dark media queries.
-  By default, the line reads **css-slate**. 
-  Your site will then follow the use's browser or OS preference to choose light or dark.
+**Dark/Light toggle** — switches between light and dark color modes. Shows the current mode icon (sun/moon) and the label for the opposite mode.
 
-- Single theme operation: 
-  Edit _tpl/xswatchDarkCss.tpl_ and delete the line with the file name, and the theme will be locked to whatever theme is specified in the file _tpl/xswatchCss.tpl_.
-  No consideration of prefers-color-scheme queries will be made.
-  In the file _tpl/xswatchCss.tpl_, edit the bottom line to match the Bootswatch theme of your choice.
-  By default, the line reads **css-cerulean**.
-  To change to a dark theme, for example, change it to **css-slate**.
-  You can pick from any of the 25 variations listed in the comments in _tpl/xswatchCss.tpl_  
+**Theme dropdown** — lists all available Bootswatch variants. Selecting one instantly swaps the CSS. The list is built dynamically from `css-*/` directories — drop in a new variant folder with a `bootstrap.min.css` and it appears automatically.
 
-- Customize the Navigation Bar in tpl/nav-menu.tpl and language/*/main.php to match your system and installed modules
-- Customize the Jumbotron in theme.tpl and tpl/jumbotron.tpl
-- Enable a slider in theme.tpl and tpl/slider.tpl
-- Customize cookie consent in tpl/cookieConsent.tpl, or disable include in theme.tpl
-- Customize or disable inbox alert in theme.tpl and tpl/inboxAlert.tpl
-- For best experience install both the PM and Profile modules
-- Customize xmnews block : for column blocks, copy xmnews_block_colonnes.tpl to xmnews_block.tpl (copy xmnews_block_lignes.tpl to xmnews_block.tpl to return to initial state)
-- Customize _css/my_xoops.css to add your css definitions and override Bootstrap definitions for the light variant or the unique variant
-- Customize _css/my_xoops_dark.css to add your css definitions and override Bootstrap definitions for the dark variant
+Both preferences are saved to the visitor's browser (`localStorage`) and persist across sessions. On first visit, the color mode follows the OS/browser preference.
 
-In addition to templates for the modules included in XOOPS (pm, profile and system,) Bootstrap v4.4 templates are included for the following modules:
+### How it works
 
-- contact - [XoopsModules25x/contact](https://github.com/XoopsModules25x/contact)
-- extcal - [XoopsModules25x/extcal](https://github.com/XoopsModules25x/extcal)
-- newbb - [XoopsModules25x/newbb](https://github.com/XoopsModules25x/newbb)
-- obituaries - [mambax7/obituaries](https://github.com/mambax7/obituaries)
-- publisher - [XoopsModules25x/publisher](https://github.com/XoopsModules25x/publisher)
-- tag - [XoopsModules25x/tag](https://github.com/XoopsModules25x/tag)
-- tdmdownloads - [XoopsModules25x/tdmdownloads](https://github.com/XoopsModules25x/tdmdownloads)
-- wggallery - [XoopsModules25x/wggallery](https://github.com/XoopsModules25x/wggallery)
-- xmcontact - [GregMage/xmcontact](https://github.com/GregMage/xmcontact)
-- xmcontent - [GregMage/xmcontent](https://github.com/GregMage/xmcontent)
-- xmdoc - [GregMage/xmdoc](https://github.com/GregMage/xmdoc)
-- xmnews - [GregMage/xmnews](https://github.com/GregMage/xmnews)
-- xoopsfaq - [XoopsModules25x/xoopsfaq](https://github.com/XoopsModules25x/xoopsfaq)
+1. `theme_autorun.php` scans `css-*/` directories with `glob()` and passes the list to Smarty
+2. `tpl/nav-menu.tpl` renders the dropdown from that list
+3. JavaScript swaps the CSS `<link>` href and saves the choice to `localStorage`
+4. A blocking `<script>` in `<head>` restores saved preferences before the page paints (no flash)
 
+## Configuration
 
-Credits:
+### Server-side default
 
-- Grégory Mage - [xm modules templates](https://github.com/GregMage)
-- Twitter Bootstrap - [Bootstrap](https://getbootstrap.com)
-- Angelo Rocha - [xBootStrap](https://github.com/angelorocha/xbootstrap)
-- Thomas Park - [BootSwatch](https://bootswatch.com/)
-- Silktide - [Cookie Consent](https://silktide.com/tools/cookie-consent/)
-- Klaus Hartl - [js-cookie](https://github.com/js-cookie/js-cookie)
-- Alain01 - 25 themes in 1 theme + xmnews templates
+Edit `xswatch5.conf` to set the default Bootswatch variant for first-time visitors:
+
+```
+xswatchCss = "css-cerulean"
+```
+
+Valid values are any `css-*` directory name (e.g., `css-slate`, `css-darkly`, `css-flatly`).
+
+### Custom CSS
+
+Edit `css/my_xoops.css` to add custom styles or override Bootstrap. For dark-mode-specific overrides, use the `[data-bs-theme="dark"]` selector:
+
+```css
+[data-bs-theme="dark"] .my-element {
+    background-color: #1a1a2e;
+}
+```
+
+### RTL
+
+RTL activates automatically when the XOOPS language pack defines `_TEXT_DIRECTION` as `'rtl'` (e.g., Arabic, Hebrew, Persian). Bootstrap 5 logical properties (`ms-`/`me-`, `text-start`/`text-end`) handle the layout mirroring. Custom submenu positioning overrides are included in `css/my_xoops.css`.
+
+## Customization
+
+- **Navigation bar** — `tpl/nav-menu.tpl` and `language/*/main.php`
+- **Jumbotron** — `theme.tpl` and `tpl/jumbotron.tpl`
+- **Slider** — uncomment in `theme.tpl`, configure in `tpl/slider.tpl`
+- **Cookie consent** — `tpl/cookieConsent.tpl`, or disable include in `theme.tpl`
+- **Inbox alert** — `tpl/inboxAlert.tpl`, or disable include in `theme.tpl`
+- **xmnews block** — copy `xmnews_block_colonnes.tpl` to `xmnews_block.tpl` for column layout
+- **Adding a variant** — drop a `css-{name}/` directory containing `bootstrap.min.css`, `xoops.css`, and `cookieconsent.css`
+
+For best experience, install both the PM and Profile modules.
+
+## Module Templates
+
+Bootstrap 5 templates are included for the following modules:
+
+| Module | Repository |
+|--------|------------|
+| contact | [XoopsModules25x/contact](https://github.com/XoopsModules25x/contact) |
+| extcal | [XoopsModules25x/extcal](https://github.com/XoopsModules25x/extcal) |
+| newbb | [XoopsModules25x/newbb](https://github.com/XoopsModules25x/newbb) |
+| obituaries | [mambax7/obituaries](https://github.com/mambax7/obituaries) |
+| publisher | [XoopsModules25x/publisher](https://github.com/XoopsModules25x/publisher) |
+| tag | [XoopsModules25x/tag](https://github.com/XoopsModules25x/tag) |
+| tdmdownloads | [XoopsModules25x/tdmdownloads](https://github.com/XoopsModules25x/tdmdownloads) |
+| wggallery | [XoopsModules25x/wggallery](https://github.com/XoopsModules25x/wggallery) |
+| xmcontact | [GregMage/xmcontact](https://github.com/GregMage/xmcontact) |
+| xmcontent | [GregMage/xmcontent](https://github.com/GregMage/xmcontent) |
+| xmdoc | [GregMage/xmdoc](https://github.com/GregMage/xmdoc) |
+| xmnews | [GregMage/xmnews](https://github.com/GregMage/xmnews) |
+| xoopsfaq | [XoopsModules25x/xoopsfaq](https://github.com/XoopsModules25x/xoopsfaq) |
+
+## Requirements
+
+- XOOPS 2.5.12+
+- PHP 8.2+
+
+## Credits
+
+- Richard Griffith (Geekwright) — original xSwatch theme concept and development
+- Angelo Rocha — [xBootStrap](https://github.com/angelorocha/xbootstrap) (original theme base)
+- Thomas Park — [Bootswatch](https://bootswatch.com/) (CSS variants)
+- Grégory Mage — [xm module templates](https://github.com/GregMage)
+- Alain01 — 21 themes in 1 theme + xmnews templates
+- Michael Beck (Mamba) - conversion to Bootstrap 5.3.8 
+- Silktide — [Cookie Consent](https://silktide.com/tools/cookie-consent/)
+- Klaus Hartl — [js-cookie](https://github.com/js-cookie/js-cookie)
+- [Bootstrap](https://getbootstrap.com) — framework
+
+## License
+
+GPL v3 — see the XOOPS project license. Third-party assets are MIT-licensed — see [LICENSES.md](LICENSES.md).

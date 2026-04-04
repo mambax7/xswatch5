@@ -1,5 +1,5 @@
-<a title="<{$smarty.const._MD_NEWBB_SUBFORUMS}>" data-toggle="collapse" href="#xoops-subforum" class="btn btn-primary pull-right">
-    <span class="fa fa-plus"></span> <{$smarty.const._MD_NEWBB_SUBFORUMS}>
+<a title="<{$smarty.const._MD_NEWBB_SUBFORUMS}>" data-bs-toggle="collapse" href="#xoops-subforum" class="btn btn-primary float-end">
+    <span class="fa-solid fa-circle-plus"></span> <{$smarty.const._MD_NEWBB_SUBFORUMS}>
 </a>
 <div class="newbb-subforum mb10 clearfix">
     <div class="collapse" id="xoops-subforum">
@@ -14,7 +14,7 @@
                 <th scope="col"><{$smarty.const._MD_NEWBB_LASTPOST}></th>
             </tr>
             </thead>
-            <{foreach item=sforum from=$subforum}>
+            <{foreach item=sforum from=$subforum|default:null}>
             <tbody>
                 <tr>
                     <td><{$sforum.forum_folder}></td>
@@ -28,7 +28,7 @@
                     <br>
                         <a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/viewtopic.php?post_id=<{$sforum.forum_lastpost_id}>">
                             <{$sforum.forum_lastpost_subject}>
-                            <span class="fa fa-forward" aria-hidden="true" title="<{$smarty.const._MD_NEWBB_GOTOLASTPOST}>"></span>
+                            <span class="fa-solid fa-forward" aria-hidden="true" title="<{$smarty.const._MD_NEWBB_GOTOLASTPOST}>"></span>
                         </a>
                         <{else}>
                         <{$smarty.const._MD_NEWBB_NOTOPIC}>

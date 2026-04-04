@@ -1,5 +1,4 @@
-/*
-/* Removed reset */
+/* XOOPS theme styles */
 img.center {
     text-align: center;
     display: block;
@@ -35,7 +34,7 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(/images/pagneutral.gif);
+    background-image: url(../../../images/pagneutral.gif);
 }
 
 .pagact {
@@ -43,7 +42,7 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(/images/pagact.gif);
+    background-image: url(../../../images/pagact.gif);
 }
 
 .paginact {
@@ -51,10 +50,18 @@ img.right {
     width: 16px;
     height: 19px;
     text-align: center;
-    background-image: url(/images/paginact.gif);
+    background-image: url(../../../images/paginact.gif);
 }
 
 /* For required elements in XOOPS form */
+/* For XOOPS 2.5.12 - Used in XoopsFormRenderer for Bootstrap and Bootstrap based theme templates */
+.xo-caption-required {
+    background-color: inherit;
+    padding-left: 2px;
+    color: #ff0000;
+}
+
+/* Used in XoopsFormRendererLegacy */
 .xoops-form-element-caption .caption-marker {
     display: none;
 }
@@ -468,7 +475,7 @@ div.jGrowl div.jGrowl-closer {
 }
 
 .marg7 {
-    margin: 8px;
+    margin: 7px;
 }
 
 .marg10 {
@@ -490,6 +497,8 @@ div.jGrowl div.jGrowl-closer {
 
 .normal {
     font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
 }
 
 .big {
@@ -512,10 +521,6 @@ div.jGrowl div.jGrowl-closer {
     font-weight: lighter;
 }
 
-.normal {
-    font-weight: normal;
-    font-style: normal;
-}
 
 .italic {
     font-style: italic;
@@ -1211,5 +1216,4 @@ div.jGrowl div.jGrowl-closer {
 
 #xswatch-popup-body {
     margin: 1em;
-/*  background: linear-gradient(135deg, #ffffff 0%,#eff6f9 88%,#cedde5 97%,#90c7e5 100%); */
 }

@@ -1,5 +1,5 @@
 <div class="xoops-comment-body">
-    <{if ($comments|default:false) }>
+    <{if !empty($comments) }>
     <{section name=i loop=$comments}>
     <div class="row">
         <div class="col-2 col-md-2"><strong><{$lang_poster}></strong></div>
@@ -7,14 +7,14 @@
     </div>
     <{include file="db:system_comment.tpl" comment=$comments[i]}>
     <!-- start comment replies -->
-    <{foreach item=reply from=$comments[i].replies}>
-    <{assign var="indent" value="`$reply.prefix/25`"}>
+    <{foreach item=reply from=$comments[i].replies|default:null}>
+    <{assign var="indent" value=$reply.prefix/25}>
     <{assign var="fullcolwidth" value="12"}>
 
-    <{if $indent>3}>
+    <{if isset($indent) && $indent > 3}>
     <{assign var="indent" value="3"}>
     <{/if}>
-    <{assign var="replyspace" value="`$fullcolwidth-$indent`"}>
+    <{assign var="replyspace" value=$fullcolwidth-$indent}>
 
     <div class="row">
         <div class="offset-md-<{$indent}> col-md-<{$replyspace}> offset-<{$indent}> col-<{$replyspace}>">
@@ -24,10 +24,10 @@
     <{/foreach}>
     <{/section}>
     <{/if}>
-    <{if $commentform}>
+    <{if isset($commentform)}>
     <div class="aligncenter">
-        <button class="btn-comment btn btn-primary btn-md" data-toggle="modal" data-target="#comments-form">
-            <span class="fa fa-comment"></span> <{$smarty.const.THEME_COMMENT_ADD}>
+        <button class="btn-comment btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#comments-form">
+            <span class="fa-solid fa-comment"></span> <{$smarty.const.THEME_COMMENT_ADD}>
         </button>
     </div>
 <!-- Modal -->
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

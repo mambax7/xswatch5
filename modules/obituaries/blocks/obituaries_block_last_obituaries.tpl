@@ -1,10 +1,10 @@
 <{if !empty($block.obituaries_last_users)}>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <{assign var=active value=' active'}>
-        <{foreach item=user from=$block.obituaries_last_users}>
+        <{foreach item=user from=$block.obituaries_last_users|default:null}>
         <div class="carousel-item<{$active}>">
-            <{if $user.obituaries_picture_url != ''}>
+            <{if !empty($user.obituaries_picture_url)}>
             <img src="<{$user.obituaries_picture_url}>" alt="<{$user.obituaries_href_title}>">
             <{else}>
             <img src="<{$xoops_url}>/modules/obituaries/assets/images/nophoto.jpg" alt="<{$user.obituaries_href_title}>">

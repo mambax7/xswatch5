@@ -11,10 +11,10 @@
     <{include file='db:publisher_categories_table.tpl'}>
     <!-- End of if !$category || $category.subcats || ($category && $display_category_summary) //-->
 <{/if}>
-<h4 class="pub_last_articles_list"><span class="fa fa-newspaper-o"></span>&nbsp;<{$lang_items_title}></h4>
+<h4 class="pub_last_articles_list"><span class="fa-solid fa-newspaper"></span>&nbsp;<{$lang_items_title}></h4>
 <div class="publisher_items_list_">
-    <{if $items}>
-    <{foreach item=item from=$items}>
+    <{if isset($items)}>
+    <{foreach item=item from=$items|default:null}>
         <div class="article_list">
             <{if $item.image_path}>
                 <div class="article_list_img">
@@ -27,16 +27,16 @@
                 <div class="article_list_title">
                     <h3><{$item.titlelink}></h3>
                     <span>
-                        <span class="fa fa-tag"></span>&nbsp;<{$item.category}>
+                        <span class="fa-solid fa-tag"></span>&nbsp;<{$item.category}>
                     </span>
                     <span>
-                        <span class="fa fa-user"></span>&nbsp;<{$item.who}>
+                        <span class="fa-solid fa-user"></span>&nbsp;<{$item.who}>
                     </span>
                     <span>
-                        <span class="fa fa-calendar"></span>&nbsp;<{$item.when}>
+                        <span class="fa-solid fa-calendar"></span>&nbsp;<{$item.when}>
                     </span>
                     <span>
-                        <span class="fa fa-comment"></span>&nbsp;<{$item.comments}>
+                        <span class="fa-solid fa-comment"></span>&nbsp;<{$item.comments}>
                     </span>
                 </div>
 
@@ -46,7 +46,7 @@
     <{/foreach}>
 </div>
 
-    <div class="generic-pagination col text-right mt-2">
+    <div class="generic-pagination col text-end mt-2">
         <{$navbar|replace:'form':'div'|replace:'id="xo-pagenav"':''|replace:' //':'/'}>
     </div>
 

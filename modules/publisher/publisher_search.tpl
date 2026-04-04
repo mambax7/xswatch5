@@ -1,9 +1,9 @@
-<{if $search_info|default:''}>
+<{if !empty($search_info)}>
     <div class="alert alert-success">
         <{$search_info}>
     </div>
-    <{if $results}>
-        <{foreach item=result from=$results}>
+    <{if !empty($results)}>
+        <{foreach item=result from=$results|default:null}>
         <div class="item" style="font-size: 12px;">
             <h4 style="margin-bottom: 1px; padding-bottom: 0;"><a href="<{$result.link|default:''}>"><{$result.title|default:''}></a></h4>
             <{$result.author}> <{$result.datesub}>
@@ -37,7 +37,7 @@
         <label class="col-sm-2 control-label"><{$smarty.const._CO_PUBLISHER_CATEGORY}></label>
 
         <div class="col-sm-10">
-            <{$category_select}>
+            <{$category_select|default:''}>
         </div>
     </div>
     <div class="form-group">
@@ -61,7 +61,7 @@
             <{$sortby_select}>
         </div>
     </div>
-    <{if $search_rule}>
+    <{if isset($search_rule)}>
         <div class="form-group">
             <label class="col-sm-2 control-label"><{$smarty.const._SR_SEARCHRULE}></label>
 
@@ -126,7 +126,7 @@
                       <td class="even"><{$sortby_select}></td>
                   </tr>
 
-                  <{if $search_rule}>
+                  <{if isset($search_rule)}>
                   <tr>
                       <td class="head" align="right">
                           <strong><{$smarty.const._SR_SEARCHRULE}></strong>&nbsp;

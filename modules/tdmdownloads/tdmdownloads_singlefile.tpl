@@ -7,13 +7,13 @@
     <h1 class="tdm-title"><{$title}> <{if !empty($version)}><label class="label label-success"><{$version}></label><{/if}></h1>
 
     <div class="tdm-download-data row">
-        <{if $show_screenshot == true}>
-            <{if $logourl != ""}>
-                <div class="tdm-screenshot-single col-xs-8 col-sm-8 col-md-8">
+        <{if isset($show_screenshot) && $show_screenshot == true}>
+            <{if !empty($logourl)}>
+                <div class="tdm-screenshot-single col-8 col-sm-8 col-md-8">
                     <img src="<{$logourl}>" alt="<{$title}>">
                 </div>
             <{else}>
-                <div class="tdm-screenshot-single col-xs-8 col-sm-8 col-md-8">
+                <div class="tdm-screenshot-single col-8 col-sm-8 col-md-8">
                     <img src="<{$xoops_imageurl}>images/tdm-no-image.jpg" alt="<{$title}>">
                 </div>
             <{/if}>
@@ -33,47 +33,47 @@
                 <li><{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_RATING}>: <{$rating}> <{$votes}>
                 </li}>
 
-                    <{if $commentsnav != ""}>
+                    <{if !empty($commentsnav)}>
                 <li><{$nb_comments}>
                 </li}>
                     <{/if}>
 
-                    <{if $sup_aff == true}>
-                    <{foreach item=champ from=$champ_sup}>
+                    <{if isset($sup_aff) && $sup_aff == true}>
+                    <{foreach item=champ from=$champ_sup|default:null}>
                 <li><{$champ.data}></li>
                 <{/foreach}>
                 <{/if}>
 
 
-                <{if $perm_vote != ""}>
-                    <li><a class="btn btn-xs btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/ratefile.php?lid=<{$lid}>"
+                <{if !empty($perm_vote)}>
+                    <li><a class="btn btn-sm btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/ratefile.php?lid=<{$lid}>"
                            title="<{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_RATHFILE}>"><{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_RATHFILE}></a></li>
                 <{/if}>
 
-                <{if $perm_modif != ""}>
-                    <li><a class="btn btn-xs btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/modfile.php?lid=<{$lid}>"
+                <{if !empty($perm_modif)}>
+                    <li><a class="btn btn-sm btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/modfile.php?lid=<{$lid}>"
                            title="<{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_MODIFY}>"><{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_MODIFY}></a></li>
                 <{/if}>
 
-                <li><a class="btn btn-xs btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/brokenfile.php?lid=<{$lid}>"
+                <li><a class="btn btn-sm btn-primary" href="<{$xoops_url}>/modules/tdmdownloads/brokenfile.php?lid=<{$lid}>"
                        title="<{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_REPORTBROKEN}>"><{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_REPORTBROKEN}></a>
                 </li>
 
                 <!--<li><{$tellafriend_texte}></li>-->
 
-                <{if $perm_download != ""}>
+                <{if !empty($perm_download)}>
                     <li><a class="btn btn-md btn-success" href="visit.php?cid=<{$cid}>&amp;lid=<{$lid}>" target="_blank" title="Download"><{$smarty.const._MD_TDMDOWNLOADS_INDEX_DLNOW}></a>
                     </li>
                 <{else}>
                     <li>
                         <div class="alert alert-danger alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             <{$smarty.const._MD_TDMDOWNLOADS_SINGLEFILE_NOPERM}>
                         </div>
                     </li>
                 <{/if}>
 
-                <{if $adminlink}>
+                <{if isset($adminlink)}>
                     <li class="text-center"><{$adminlink}></li>
                 <{/if}>
             </ul>
@@ -84,15 +84,15 @@
         <{$description}>
     </div>
 
-    <{if $paypal}>
+    <{if isset($paypal)}>
         <{$paypal}>
     <{/if}>
 
-    <{if $tags}>
+    <{if isset($tags)}>
         <{include file="db:tag_bar.tpl"}>
     <{/if}>
 
-    <{if $show_social}>
+    <{if isset($show_social)}>
         <div class='shareaholic-canvas' data-app='share_buttons' data-app-id=''></div>
     <{/if}>
 </div><!-- .tdmdownloads -->
@@ -100,12 +100,14 @@
 <{$commentsnav}>
 <div class="row d-flex justify-content-center"><{$lang_notice}></div>
 
-<{if $comment_mode == "flat"}>
-    <{include file="db:system_comments_flat.tpl"}>
-<{elseif $comment_mode == "thread"}>
-    <{include file="db:system_comments_thread.tpl"}>
-<{elseif $comment_mode == "nest"}>
-    <{include file="db:system_comments_nest.tpl"}>
+<{if isset($comment_mode)}>
+    <{if $comment_mode == "flat"}>
+        <{include file="db:system_comments_flat.tpl"}>
+    <{elseif $comment_mode == "thread"}>
+        <{include file="db:system_comments_thread.tpl"}>
+    <{elseif $comment_mode == "nest"}>
+        <{include file="db:system_comments_nest.tpl"}>
+    <{/if}>
 <{/if}>
 
 <{include file="db:system_notification_select.tpl"}>

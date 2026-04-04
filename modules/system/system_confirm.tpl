@@ -3,7 +3,7 @@
         <{$msg}>
     <hr>
 
-    <form class="form-inline" method="post" action="<{$action}>">
+    <form class="d-inline" method="post" action="<{$action}>">
 	<{$hiddens}>
 <{if ($addtoken)}>
     <{$token}>
