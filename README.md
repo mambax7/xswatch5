@@ -93,7 +93,7 @@ Bootstrap 5 templates are included for the following modules:
 
 ## Requirements
 
-- XOOPS 2.5.12+
+- XOOPS 2.5.11+ (RTL auto-detection requires 2.5.12+ for `_TEXT_DIRECTION`; on 2.5.11 the theme silently falls back to LTR)
 - PHP 8.2+
 
 ## Credits
